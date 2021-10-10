@@ -1,0 +1,9 @@
+{
+	"suggest.noselect": false,
+	"suggest.enablePreview": true,
+	"suggest.removeDuplicateItems": true,
+	"suggest.maxCompleteItemCount": 12,
+	"suggest.autoTrigger": "always",
+	"signature.triggerSignatureWait": 300,
+	"list.height": 60
+}
