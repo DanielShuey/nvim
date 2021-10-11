@@ -1,5 +1,5 @@
-let path = expand('%:p:h') . '\..\..\..\..\..\AppData\Local\nvim\'
+let path = '~\AppData\Local\nvim\'
 
-exe 'source' path . '\.nvimrc'
+exe 'source' path . '.nvimrc'
 
-set guifont=Consolas:h11
+"set guifont=Monaco:h11

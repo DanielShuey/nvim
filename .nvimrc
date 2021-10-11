@@ -1,6 +1,7 @@
 call plug#begin('~/AppData/Local/nvim/plugged')
 Plug 'git@github.com:OmniSharp/omnisharp-vim.git'
 Plug 'joshdick/onedark.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Shougo/echodoc.vim'
@@ -9,10 +10,15 @@ Plug 'junegunn/fzf.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'dense-analysis/ale'
 Plug 'git@github.com:preservim/nerdcommenter.git'
-Plug 'https://github.com/tpope/vim-eunuch.git'
-Plug 'https://github.com/abecodes/tabout.nvim.git'
-Plug 'https://github.com/tpope/vim-surround.git' 
-Plug 'https://github.com/preservim/nerdtree.git'
+Plug 'git@github.com:tpope/vim-eunuch.git'
+Plug 'git@github.com:tpope/vim-surround.git' 
+Plug 'git@github.com:preservim/nerdtree.git'
+Plug 'ryanoasis/vim-devicons'
+Plug 'git@github.com:tiagofumo/vim-nerdtree-syntax-highlight.git'
+Plug 'git@github.com:scrooloose/nerdtree-project-plugin.git'
+Plug 'git@github.com:PhilRunninger/nerdtree-buffer-ops.git'
+Plug 'git@github.com:PhilRunninger/nerdtree-visual-selection.git'
+Plug 'liuchengxu/vista.vim'
 call plug#end()
 
 " Imports --------------------------------------------------
@@ -24,8 +30,9 @@ endfor
 " Settings --------------------------------------------------
 
 syntax enable
-colorscheme onedark
+colorscheme dracula
 
+set encoding=UTF-8
 set nocompatible
 let g:mapleader = ','
 let g:maplocalleader = ','
@@ -53,9 +60,17 @@ hi Quote ctermbg=109 guifg=#83a598
 highlight LineNr gui=bold guifg=grey
 filetype plugin on
 let g:autoclose_on = 0
+set wildmode=longest,list   " get bash-like tab completions
+set autoindent              " indent a new line the same amount as the line just typed
+set showmatch               " show matching 
+set ttyfast                 " Speed up scrolling in Vim
 
 source $VIMRUNTIME/mswin.vim
 behave mswin
+
+" open new split panes to right and below
+" set splitright
+" set splitbelow
 
 " Number System ----------------------
 
@@ -85,11 +100,28 @@ nmap <space> <Plug>(easymotion-bd-w)
 nnoremap <M-o>  :<C-u>CocList outline<CR>
 vnoremap <C-h> :s/
 nnoremap <esc> :noh<return><esc>
+
 " Jump to the end in INSERT mode
 inoremap <C-e> <C-o>A 
 nmap <C-/>   <Plug>NERDCommenterToggle
 vmap <C-/>   <Plug>NERDCommenterToggle<CR>gv
 nnoremap <C-n> :NERDTreeToggle<CR>
+
+" move line or visually selected block - alt+j/k
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+" move split panes to left/bottom/top/right
+nnoremap <A-h> <C-W>H
+nnoremap <A-j> <C-W>J
+nnoremap <A-k> <C-W>K
+nnoremap <A-l> <C-W>L
+" move between panes to left/bottom/top/right
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " Tabs----------------------------------------
 
