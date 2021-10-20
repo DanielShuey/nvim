@@ -1,7 +1,6 @@
 call plug#begin('~/AppData/Local/nvim/plugged')
 Plug 'git@github.com:OmniSharp/omnisharp-vim.git'
 Plug 'joshdick/onedark.vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Shougo/echodoc.vim'
@@ -30,7 +29,7 @@ endfor
 " Settings --------------------------------------------------
 
 syntax enable
-colorscheme dracula
+colorscheme onedark
 
 set encoding=UTF-8
 set nocompatible
@@ -99,13 +98,13 @@ nnoremap <M-u> :OmniSharpFixUsings<CR>
 nmap <space> <Plug>(easymotion-bd-w)
 nnoremap <M-o>  :<C-u>CocList outline<CR>
 vnoremap <C-h> :s/
-nnoremap <esc> :noh<return><esc>
+" nnoremap <esc> :noh<return><esc>
 
 " Jump to the end in INSERT mode
 inoremap <C-e> <C-o>A 
 nmap <C-/>   <Plug>NERDCommenterToggle
 vmap <C-/>   <Plug>NERDCommenterToggle<CR>gv
-nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-n> :NERDTreeToggle %<CR>
 
 " move line or visually selected block - alt+j/k
 inoremap <A-j> <Esc>:m .+1<CR>==gi
