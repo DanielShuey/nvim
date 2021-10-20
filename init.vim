@@ -6,4 +6,4 @@ endif
 
 exe 'source' path . '.nvimrc'
 
-"set guifont=Monaco:h11
+set guifont=SauceCodePro NF:h11:l

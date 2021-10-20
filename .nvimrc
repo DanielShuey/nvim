@@ -21,9 +21,15 @@ call plug#end()
 
 " Imports --------------------------------------------------
 
-for f in split(glob(path . '\config\*.vim'), '\n')
-    exe 'source' f
-endfor
+if has("unix")
+	for f in split(glob(path . '/config/*.vim'), '\n')
+		exe 'source' f
+	endfor
+else
+	for f in split(glob(path . '\config\*.vim'), '\n')
+		exe 'source' f
+	endfor
+endif
 
 " Settings --------------------------------------------------
 

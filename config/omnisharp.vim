@@ -1,6 +1,11 @@
 " autocmd BufWrite * :<C-u>OmniSharpCodeFormat<cr>
 
-let g:OmniSharp_translate_cygwin_wsl = 0
+if has("unix")
+	let g:OmniSharp_translate_cygwin_wsl = 1
+else
+	let g:OmniSharp_translate_cygwin_wsl = 0
+endif
+
 let g:OmniSharp_loglevel = 'debug'
 let g:OmniSharp_server_stdio = 1
 let g:OmniSharp_selector_findusages = 'fzf'
