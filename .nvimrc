@@ -2,7 +2,8 @@ call plug#begin(path . 'plugged')
 Plug 'git@github.com:OmniSharp/omnisharp-vim.git'
 Plug 'git@github.com:nickspoons/vim-sharpenup.git'
 Plug 'joshdick/onedark.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'git@github.com:junegunn/fzf.vim.git'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Shougo/echodoc.vim'
 Plug 'itchyny/lightline.vim'
@@ -21,13 +22,13 @@ call plug#end()
 " Imports --------------------------------------------------
 
 if has("unix")
-	for f in split(glob(path . '/config/*.vim'), '\n')
-		exe 'source' f
-	endfor
+   for f in split(glob(path . '/config/*.vim'), '\n')
+      exe 'source' f
+   endfor
 else
-	for f in split(glob(path . '\config\*.vim'), '\n')
-		exe 'source' f
-	endfor
+   for f in split(glob(path . '\config\*.vim'), '\n')
+      exe 'source' f
+   endfor
 endif
 
 " Settings --------------------------------------------------
@@ -35,12 +36,15 @@ endif
 syntax enable
 colorscheme onedark
 
+if has("win32")
+   set shell=cmd.exe
+   let &shell='bash.exe'
+endif
+
 set encoding=UTF-8
 set nocompatible
 let g:mapleader = ','
 let g:maplocalleader = ','
-let &shell='bash.exe'
-set shell=cmd.exe
 set numberwidth=8
 set so=999
 set laststatus=2
