@@ -1,5 +1,4 @@
-call plug#begin('~/AppData/Local/nvim/plugged')
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+call plug#begin(path . 'plugged')
 Plug 'git@github.com:OmniSharp/omnisharp-vim.git'
 Plug 'git@github.com:nickspoons/vim-sharpenup.git'
 Plug 'joshdick/onedark.vim'
