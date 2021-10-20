@@ -67,8 +67,10 @@ set autoindent              " indent a new line the same amount as the line just
 set showmatch               " show matching 
 set ttyfast                 " Speed up scrolling in Vim
 
-source $VIMRUNTIME/mswin.vim
-behave mswin
+if has("win32")
+	source $VIMRUNTIME/mswin.vim
+	behave mswin
+endif
 
 " open new split panes to right and below
 " set splitright
