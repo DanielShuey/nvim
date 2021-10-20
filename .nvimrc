@@ -6,7 +6,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Shougo/echodoc.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'easymotion/vim-easymotion'
 Plug 'git@github.com:preservim/nerdcommenter.git'
 Plug 'git@github.com:tpope/vim-eunuch.git'
