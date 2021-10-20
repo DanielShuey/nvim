@@ -5,6 +5,7 @@ let g:OmniSharp_loglevel = 'debug'
 let g:OmniSharp_server_stdio = 1
 let g:OmniSharp_selector_findusages = 'fzf'
 let g:OmniSharp_selector_ui = 'fzf'
+let g:OmniSharp_highlighting = 3
 
 nnoremap . <NOP> 
 vnoremap <C-.> :call OmniSharp#actions#codeactions#Get('visual')<cr>
@@ -25,7 +26,7 @@ else
 endif
 
 " Tell ALE to use OmniSharp for linting C# files, and no other linters.
-let g:ale_linters = { 'cs': ['OmniSharp'] }
+"let g:ale_linters = { 'cs': ['OmniSharp'] }
 
 augroup omnisharp_commands
   autocmd!
