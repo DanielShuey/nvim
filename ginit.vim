@@ -4,7 +4,7 @@ set mouse=a
 " Set Editor Font
 if exists(':GuiFont')
     " Use GuiFont! to ignore font errors
-    GuiFont! Monaco NF:h12
+    GuiFont! SauceCodePro NF:h11:l
 endif
 
 " Disable GUI Tabline
