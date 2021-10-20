@@ -36,11 +36,6 @@ endif
 syntax enable
 colorscheme onedark
 
-if has("win32")
-   set shell=cmd.exe
-   let &shell='bash.exe'
-endif
-
 set encoding=UTF-8
 set nocompatible
 let g:mapleader = ','
@@ -58,7 +53,7 @@ set shiftwidth=3
 set expandtab
 let g:EasyMotion_smartcase = 1
 set switchbuf=newtab
-"set modifiable
+set modifiable
 set clipboard+=unnamedplus
 set viminfo='100,<0,s10,h "Remove Registers
 hi Quote ctermbg=109 guifg=#83a598
@@ -70,7 +65,10 @@ set autoindent              " indent a new line the same amount as the line just
 set showmatch               " show matching 
 set ttyfast                 " Speed up scrolling in Vim
 
-if has("win32")
+if has("unix")
+else
+	set shell=cmd.exe
+	let &shell='bash.exe'
 	source $VIMRUNTIME/mswin.vim
 	behave mswin
 endif
