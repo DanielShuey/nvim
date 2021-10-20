@@ -4,4 +4,6 @@ command! -bang -nargs=? -complete=dir CS call fzf#vim#files(<q-args>, {'source' 
 
 nnoremap <C-p> :CS<cr>
 
-autocmd VimEnter * GuiPopupmenu 0
+if exists(':GuiPopupmenu')
+	autocmd VimEnter * GuiPopupmenu 0
+endif
