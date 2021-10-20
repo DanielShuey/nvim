@@ -6,4 +6,6 @@ endif
 
 exe 'source' path . '.nvimrc'
 
-set guifont=SauceCodePro NF:h11:l
+if has("win32")
+	"set guifont=SauceCodePro NF:h11:l
+end
