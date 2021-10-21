@@ -2,6 +2,7 @@
 
 if has("unix")
 	let g:OmniSharp_translate_cygwin_wsl = 1
+"   let g:OmniSharp_server_path = '~/.omnisharp/run'
 else
 	let g:OmniSharp_translate_cygwin_wsl = 0
 endif
